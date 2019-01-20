@@ -2,7 +2,7 @@
 
 配方： ℞ **essay**
 
-[Rime](http://rime.im) 預設詞彙表及語言模型
+[Rime](https://rime.im) 預設詞彙表及語言模型
 
 ## 安裝
 
