@@ -16,7 +16,16 @@ awk '$2 < 10' essay.new > low.txt
 
 sort low.txt essay.old | uniq --repeated > low-old.txt
 sort low.txt low-old.txt | uniq --unique > low-new.txt
-sort -u essay.old high.txt > essay.txt
+sort essay.old high.txt | awk '{
+  if (k != $1) {
+    if (k != "") print(k "\t" v);
+    k = $1;
+    v = $2;
+  } else {
+    if (v < $2) { v = $2; }
+  }
+}
+END { print(k "\t" v); }' > essay.txt
 
 echo ---
 wc -l essay.{old,new,txt}
